@@ -3,6 +3,40 @@ body {
     background-color: #f6f6f6;
 }
 
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #e9e9e9;
+}
+
+.topnav-logo {
+    font-size: 20px;
+}
+
+.topnav input[type=text] {
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 0px;
+    font-size: 17px;
+}
+
+.topnav .search-container button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+  
+.topnav .search-container button:hover {
+    background: #ccc;
+}
+
 .news {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -19,4 +53,9 @@ body {
 .news-article img {
     max-width: 100%;
     object-fit: cover;
+}
+
+.footer-text {
+    padding: 5px 20px;
+    font-size: small;
 }

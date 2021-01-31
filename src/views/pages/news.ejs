@@ -6,6 +6,20 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>News App 👋</title>
 </head>
+
+<header>
+    <%- include('partials/nav.ejs') %> 
+    <!-- <div class="topnav">
+        <div class="topnav-logo">News 📰</div>
+        <div class="search-container">
+            <form action="">
+              <input type="text" placeholder="Search.." name="search">
+              <button type="submit">Go</button>
+            </form>
+        </div>
+    </div> -->
+</header>
+
 <body>
     <div class="news">
         <% newsArticles.forEach(function(article) { %>
@@ -21,4 +35,7 @@
         <% }) %> 
     </div>
 </body>
+
+<%- include('partials/footer.ejs') %> 
+
 </html>
