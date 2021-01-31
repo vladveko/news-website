@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    background-color: #f6f6f6;
+}
+
+.news {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-gap: 2rem;
+}
+
+.news-article {
+    text-decoration: none;
+    color: rgb(8,8,8);
+    background-color: #FFF;
+    padding: 20px;
+}
+
+.news-article img {
+    max-width: 100%;
+    object-fit: cover;
+}
