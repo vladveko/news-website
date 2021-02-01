@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>News App 👋</title>
+</head>
+
+<header>
+    <%- include('partials/nav.ejs') %> 
+</header>
+
+<body>
+    <div class="wrapper">
+        <div class="article">
+            <div class="link-container">
+                <a href='/' class="back-home-link">&larr; Back Home</a> 
+            </div>
+            <img src="<%- article.jetpack_featured_media_url %>" alt="<%- article.jetpack_featured_media_url %>"/>
+            <h2 class="article-title"><%- article.title.rendered %></h2>
+            <div class="article-content">
+                <%- article.content.rendered %> 
+            </div>
+        </div>
+    </div>
+</body>
+
+<%- include('partials/footer.ejs') %> 
+
+</html>

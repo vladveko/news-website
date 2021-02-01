@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>News App 👋</title>
+</head>
+
+<header>
+    <%- include('partials/nav.ejs') %> 
+</header>
+
+<body>
+    <div class="wrapper">
+        <div class="news">
+            <% newsArticles.forEach(function(article) { %>
+        
+                <a href="/article/<%- article.id %>" class="news-article">
+                    <img src="<%- article.jetpack_featured_media_url %>" alt="<%- article.jetpack_featured_media_url %>"/>
+                    <h2 class="article-title"><%- article.title.rendered %></h2>
+                    <div class="article-excerpt">
+                        <%- article.excerpt.rendered %> 
+                    </div>
+                </a>
+        
+            <% }) %> 
+        </div>
+    </div>
+</body>
+
+<%- include('partials/footer.ejs') %> 
+
+</html>
