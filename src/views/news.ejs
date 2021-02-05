@@ -11,24 +11,26 @@
     <%- include('partials/nav.ejs') %> 
 </header>
 
-<body>
+<div class="site-content">
     <div class="wrapper">
         <div class="news">
-            <% newsArticles.forEach(function(article) { %>
-        
-                <a href="/article/<%- article.id %>" class="news-article">
-                    <img src="<%- article.jetpack_featured_media_url %>" alt="<%- article.jetpack_featured_media_url %>"/>
-                    <h2 class="article-title"><%- article.title.rendered %></h2>
-                    <div class="article-excerpt">
-                        <%- article.excerpt.rendered %> 
-                    </div>
-                </a>
-        
-            <% }) %> 
+            <% if (newsArticles != null) { %> 
+                <% newsArticles.forEach(function(article) { %>
+            
+                    <a href="/article/<%- article.id %>" class="news-article">
+                        <img src="<%- article.jetpack_featured_media_url %>" alt="<%- article.jetpack_featured_media_url %>"/>
+                        <h2 class="article-title"><%- article.title.rendered %></h2>
+                        <div class="article-excerpt">
+                            <%- article.excerpt.rendered %> 
+                        </div>
+                    </a>
+            
+                <% }) %>
+            <% } else { %>
+                <h2>No Articles Found</h2>
+            <% } %> 
         </div>
     </div>
-</body>
-
-<%- include('partials/footer.ejs') %> 
-
+    <%- include('partials/footer.ejs') %> 
+</main>
 </html>
