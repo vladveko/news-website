@@ -6,9 +6,31 @@ const Comment = require('../models/comment')
 news.get('', async(req, res) => {
 
     try {
-        const newsReq = await axios.get(`https://techcrunch.com/wp-json/wp/v2/posts`)
+        const newsReq = await axios.get(`https://techcrunch.com/wp-json/wp/v2/posts?per_page=12`)
         res.render('news', { newsArticles : newsReq.data })
     } catch (err) {
+        res.render('news', { newsArticles : null })
+        if (err.response) {
+            console.log(err.response.status)
+            console.log(err.response.headers)
+        }
+        else if (err.request) {
+            console.log(err.request)
+        }
+        else {
+            console.error('Error', err.message)
+        }
+    }
+})
+
+news.get('/:pageNum', async(req, res) => {
+    let pageNum = req.params.page
+
+    try {
+        const newsReq = await axios.get(`https://techcrunch.com/wp-json/wp/v2/posts?per_page=12&page=${pageNum}`)
+        res.render('news', { newsArticles : newsReq.data })
+    }
+    catch (err) {
         res.render('news', { newsArticles : null })
         if (err.response) {
             console.log(err.response.status)
@@ -28,8 +50,8 @@ news.get('/article/:id', async(req, res) => {
 
     try {
         const newsReq = await axios.get(`https://techcrunch.com/wp-json/wp/v2/posts/${articleId}`)
-        //const comments = await Comment.find()
-        res.render('article', { article : newsReq.data })
+        const comments = await Comment.find({ postID: articleId })
+        res.render('article', { article : newsReq.data , comments: comments })
     } catch (err) {
         res.render('article', { article : null })
         if (err.response) {

@@ -27,6 +27,23 @@
                 <h2>No Articles Found</h2>
             <% } %> 
         </div>
+        <div class="comments-section">
+            <h2>Comments</h2>
+            <% if (comments.length > 0) { %>
+                <% comments.forEach(function(comment) { %>
+                    <div class="single-comment">
+                        <div class="single-comment-uname">
+                            <%- comment.username %>
+                        </div>
+                        <div class="single-comment-text">
+                            <%- comment.comment %> 
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <h3 class="no-comments-title">Article has no comments</h3>
+            <% } %>    
+        </div>
         <% if (article != null) { %>
             <%- include('partials/commentForm.ejs') %>
         <% } %>
