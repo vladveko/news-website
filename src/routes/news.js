@@ -23,7 +23,7 @@ news.get('', async(req, res) => {
     }
 })
 
-news.get('/:pageNum', async(req, res) => {
+news.get('/:page', async(req, res) => {
     let pageNum = req.params.page
 
     try {

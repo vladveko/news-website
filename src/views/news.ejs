@@ -24,12 +24,14 @@
                             <%- article.excerpt.rendered %> 
                         </div>
                     </a>
-            
                 <% }) %>
             <% } else { %>
                 <h2>No Articles Found</h2>
             <% } %> 
         </div>
+        <% if (newsArticles != null) { %>
+            <%- include('partials/pagination.ejs') %> 
+        <% } %>
     </div>
     <%- include('partials/footer.ejs') %> 
 </main>
